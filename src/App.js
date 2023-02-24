@@ -1,10 +1,10 @@
 import "./App.css";
 
-import Map from "./map";
+import NairobiMap from "./map";
 function App() {
   return (
     <div className="App">
-      <Map />
+      <NairobiMap />
     </div>
   );
 }
