@@ -14,7 +14,7 @@ Leaflet.Icon.Default.mergeOptions({
 });
 
 const MapDisplay = (latitude, longitude) => {
-  const [lat, lng, zoom] = [-1.2921, 36.8219, 13]; // Nairobi coordinates
+  const [lat, lng, zoom] = [-1.2921, 36.8219, 15]; // Nairobi coordinates
 
   const position = [lat, lng];
   console.log(latitude, longitude);

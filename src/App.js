@@ -7,6 +7,8 @@ import { useState } from "react";
 function App() {
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
+  // const [state, setState] = useState();
+  let state = 0;
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -33,10 +35,23 @@ function App() {
     );
   }
 
+  function Cont() {
+    return (
+      <section id="container">Please specify coordinates to display</section>
+    );
+  }
+
+  function Display() {
+    if (state === 0) {
+      return <Cont />;
+    } else {
+      return <MapDisplay latitude={latitude} longitude={longitude} />;
+    }
+  }
   return (
     <div className="App">
       <Form />
-      <MapDisplay latitude={latitude} longitude={longitude} />
+      <Display />
       <Pdf />
     </div>
   );
