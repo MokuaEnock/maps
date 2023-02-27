@@ -19,7 +19,7 @@ const MapDisplay = () => {
   const position = [lat, lng];
 
   return (
-    <MapContainer center={position} zoom={zoom} style={{ height: "400px" }}>
+    <MapContainer center={position} zoom={zoom} className="custom-map">
       <TileLayer
         attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
