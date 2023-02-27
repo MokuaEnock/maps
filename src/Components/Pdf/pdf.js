@@ -1,7 +1,6 @@
 import { PDFDocument } from "pdf-lib";
 
 export default function Pdf() {
-    
   const createPdf = async () => {
     // Create a new PDF document
     const pdfDoc = await PDFDocument.create();
@@ -27,5 +26,16 @@ export default function Pdf() {
     return new Blob([pdfBytes], { type: "application/pdf" });
   };
 
-  return <></>;
+  const handleDownloadPdf = async () => {
+    const pdfBlob = await createPdf();
+    const url = URL.createObjectURL(pdfBlob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "document.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  return <button onClick={handleDownloadPdf}>Download PDF</button>;
 }
