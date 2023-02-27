@@ -78,7 +78,6 @@ input:focus {
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: max-content;
-  height: max-content;
-  background-color: aquamarine;
+  width: 95%;
+  height: 60vh;
 }

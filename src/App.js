@@ -8,7 +8,7 @@ function App() {
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
   // const [state, setState] = useState();
-  let state = 0;
+  let state = 9;
 
   function handleSubmit(e) {
     e.preventDefault();
