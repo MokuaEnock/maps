@@ -35,12 +35,6 @@ export default function Pdf() {
   const handleDownloadPdf = async () => {
     const pdfBlob = await createPdf();
     const url = URL.createObjectURL(pdfBlob);
-    // const link = document.createElement("a");
-    // link.href = url;
-    // link.download = "document.pdf";
-    // document.body.appendChild(link);
-    // link.click();
-    // document.body.removeChild(link);
     window.open(url, "_blank");
   };
 
