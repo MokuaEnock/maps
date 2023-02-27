@@ -9,8 +9,8 @@ export default function Pdf() {
     const page = pdfDoc.addPage();
 
     // Draw some text on the page
-    const font = await pdfDoc.embedFont("Helvetica");
-    const textSize = 30;
+    const font = await pdfDoc.embedFont("Times-Roman");
+    const textSize = 12;
     const text = "Hello, world!";
     page.drawText(text, {
       x: 50,
@@ -29,12 +29,13 @@ export default function Pdf() {
   const handleDownloadPdf = async () => {
     const pdfBlob = await createPdf();
     const url = URL.createObjectURL(pdfBlob);
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = "document.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    // const link = document.createElement("a");
+    // link.href = url;
+    // link.download = "document.pdf";
+    // document.body.appendChild(link);
+    // link.click();
+    // document.body.removeChild(link);
+    window.open(url, "_blank");
   };
 
   return (
