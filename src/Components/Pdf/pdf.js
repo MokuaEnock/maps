@@ -37,5 +37,9 @@ export default function Pdf() {
     document.body.removeChild(link);
   };
 
-  return <button onClick={handleDownloadPdf}>Download PDF</button>;
+  return (
+    <button onClick={handleDownloadPdf} className="pdf-button">
+      Download Report
+    </button>
+  );
 }

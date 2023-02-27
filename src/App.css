@@ -31,3 +31,13 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+.pdf-button {
+  width: 30vw;
+  height: 5vh;
+  margin-top: 4vh;
+  border-radius: 100px;
+  border: thin solid white;
+  background-color: teal;
+  color: white;
+}
