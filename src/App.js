@@ -5,36 +5,30 @@ import Pdf from "./Components/Pdf/pdf";
 import { useState } from "react";
 
 function App() {
-  let [formData, setFormData] = useState({
-    latitude: "",
-    longitude: "",
-  });
+  const [latitude, setLatitude] = useState("");
+  const [longitude, setLongitude] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log("printed");
+    console.log({ latitude, longitude });
   }
 
   function Form() {
     return (
       <form onSubmit={handleSubmit}>
         <input
-          type="number"
+          type="text"
           placeholder="Enter Latitude"
-          value={formData.latitude}
-          onChange={(e) => {
-            setFormData({ ...formData, latitude: e.target.value });
-          }}
+          value={latitude}
+          onChange={(e) => setLatitude(e.target.value)}
         />
         <input
-          type="number"
+          type="text"
           placeholder="Enter Longitude"
-          value={formData.longitude}
-          onChange={(e) => {
-            setFormData({ ...formData, longitude: e.target.value });
-          }}
+          value={longitude}
+          onChange={(e) => setLongitude(e.target.value)}
         />
-        <button type="submit">Submit coordinates</button>
+        <button type="submit">Submit Coordinates</button>
       </form>
     );
   }
