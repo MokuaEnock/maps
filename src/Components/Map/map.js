@@ -13,10 +13,11 @@ Leaflet.Icon.Default.mergeOptions({
   shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
 });
 
-const MapDisplay = () => {
+const MapDisplay = (latitude, longitude) => {
   const [lat, lng, zoom] = [-1.2921, 36.8219, 13]; // Nairobi coordinates
 
   const position = [lat, lng];
+  console.log(latitude, longitude);
 
   return (
     <MapContainer center={position} zoom={zoom} className="custom-map">

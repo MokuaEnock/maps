@@ -36,7 +36,7 @@ function App() {
   return (
     <div className="App">
       <Form />
-      <MapDisplay />
+      <MapDisplay latitude={latitude} longitude={longitude} />
       <Pdf />
     </div>
   );
