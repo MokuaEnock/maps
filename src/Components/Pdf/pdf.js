@@ -8,14 +8,20 @@ export default function Pdf() {
     // Add a new page to the document
     const page = pdfDoc.addPage();
 
-    // Draw some text on the page
+    // Embed Times New Roman font
     const font = await pdfDoc.embedFont("Times-Roman");
-    const textSize = 12;
+
+    // Create a custom text run with Times New Roman font and size 12
     const text = "Hello, world!";
+    const textSize = font.widthOfTextAtSize(text, 12);
+    const x = (page.getWidth() - textSize) / 2;
+    const y = page.getHeight() - 50;
+
+    // Draw the custom text run on the page
     page.drawText(text, {
-      x: 50,
-      y: page.getHeight() / 2,
-      size: textSize,
+      x,
+      y,
+      size: 12,
       font,
     });
 
