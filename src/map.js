@@ -14,7 +14,8 @@ Leaflet.Icon.Default.mergeOptions({
 });
 
 const MapDisplay = () => {
-  const [lat, lng, zoom] = [41.257017, 29.077524, 13];
+  const [lat, lng, zoom] = [-1.2921, 36.8219, 13]; // Nairobi coordinates
+
   const position = [lat, lng];
 
   return (
@@ -24,7 +25,7 @@ const MapDisplay = () => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       <Marker position={position}>
-        <Popup>Son Konum</Popup>
+        <Popup>Nairobi</Popup>
       </Marker>
     </MapContainer>
   );
