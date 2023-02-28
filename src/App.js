@@ -21,14 +21,31 @@ function App() {
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
 
+  function Cont() {
+    return (
+      <section id="container">Please specify coordinates to display</section>
+    );
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
     if (latitude !== null && longitude !== null) {
-      console.log(latitude + longitude);
+      let zoom = 15;
+      const position = [parseInt(latitude), parseInt(longitude)];
+      return (
+        <MapContainer center={position} zoom={zoom} className="custom-map">
+          <TileLayer
+            attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker position={position}>
+            <Popup>Nairobi</Popup>
+          </Marker>
+        </MapContainer>
+      );
     } else {
-      console.log("fail");
+      console.log(typeof longitude);
     }
-    console.log({ latitude, longitude });
   }
 
   function Form() {
@@ -48,12 +65,6 @@ function App() {
         />
         <button type="submit">Submit Coordinates</button>
       </form>
-    );
-  }
-
-  function Cont() {
-    return (
-      <section id="container">Please specify coordinates to display</section>
     );
   }
 
