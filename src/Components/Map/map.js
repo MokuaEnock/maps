@@ -23,7 +23,7 @@ const MapDisplay = (latitude, longitude) => {
   function Ddisplay() {
     const [lat, lng, zoom] = [-1.2921, 36.8219, 15]; // Nairobi coordinates
 
-    const position = [lat, lng];
+    const position = [parseInt(lat), parseInt(lng)];
 
     if (lat === null && lng === null) {
       return <Cont />;

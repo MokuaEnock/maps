@@ -30,6 +30,7 @@ function App() {
   function handleSubmit(e) {
     e.preventDefault();
     if (latitude !== null && longitude !== null) {
+      console.log("Success");
       let zoom = 15;
       const position = [parseInt(latitude), parseInt(longitude)];
       return (
@@ -44,6 +45,7 @@ function App() {
         </MapContainer>
       );
     } else {
+      console.log("fail");
       console.log(typeof longitude);
     }
   }
