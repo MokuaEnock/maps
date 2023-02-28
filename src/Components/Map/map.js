@@ -14,22 +14,33 @@ Leaflet.Icon.Default.mergeOptions({
 });
 
 const MapDisplay = (latitude, longitude) => {
-  const [lat, lng, zoom] = [-1.2921, 36.8219, 15]; // Nairobi coordinates
+  function Cont() {
+    return (
+      <section id="container">Please specify coordinates to display</section>
+    );
+  }
 
-  const position = [lat, lng];
-  console.log(latitude, longitude);
+  function Ddisplay() {
+    const [lat, lng, zoom] = [-1.2921, 36.8219, 15]; // Nairobi coordinates
 
-  return (
-    <MapContainer center={position} zoom={zoom} className="custom-map">
-      <TileLayer
-        attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      <Marker position={position}>
-        <Popup>Nairobi</Popup>
-      </Marker>
-    </MapContainer>
-  );
+    const position = [lat, lng];
+
+    if (lat === null && lng === null) {
+      return <Cont />;
+    } else {
+      <MapContainer center={position} zoom={zoom} className="custom-map">
+        <TileLayer
+          attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        <Marker position={position}>
+          <Popup>Nairobi</Popup>
+        </Marker>
+      </MapContainer>;
+    }
+  }
+
+  return <Ddisplay />;
 };
 
 export default MapDisplay;

@@ -3,6 +3,19 @@ import "./App.css";
 import MapDisplay from "./Components/Map/map";
 import Pdf from "./Components/Pdf/pdf";
 import { useState } from "react";
+import React from "react";
+import Leaflet from "leaflet";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+
+Leaflet.Icon.Default.imagePath = "../node_modules/leaflet";
+delete Leaflet.Icon.Default.prototype._getIconUrl;
+
+Leaflet.Icon.Default.mergeOptions({
+  iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
+  iconUrl: require("leaflet/dist/images/marker-icon.png"),
+  shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
+});
 
 function App() {
   const [latitude, setLatitude] = useState("");
@@ -42,12 +55,13 @@ function App() {
   }
 
   function Display() {
-    if (state === 0) {
-      return <Cont />;
-    } else {
+    if (latitude === null && longitude === null) {
       return <MapDisplay latitude={latitude} longitude={longitude} />;
+    } else {
+      return <Cont />;
     }
   }
+
   return (
     <div className="App">
       <Form />
