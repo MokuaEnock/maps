@@ -20,11 +20,14 @@ Leaflet.Icon.Default.mergeOptions({
 function App() {
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
-  // const [state, setState] = useState();
-  let state = 9;
 
   function handleSubmit(e) {
     e.preventDefault();
+    if (latitude !== null && longitude !== null) {
+      console.log(latitude + longitude);
+    } else {
+      console.log("fail");
+    }
     console.log({ latitude, longitude });
   }
 
